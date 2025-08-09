@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  node1:
+    build: ./node1
+    ports:
+      - "8010:8010"
+      - "5001:5001"
+    volumes:
+      - ./node1/fragments:/app/fragments
+    networks:
+      - p2pnet
+
+  node2:
+    build: ./node2
+    ports:
+      - "8011:8011"
+      - "5002:5002"
+    volumes:
+      - ./node2/fragments:/app/fragments
+    networks:
+      - p2pnet
+
+networks:
+  p2pnet:
